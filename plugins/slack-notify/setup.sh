@@ -18,12 +18,14 @@ done
 # ── 1Password sign-in ──────────────────────────────────────────────────────────
 
 if ! op whoami &>/dev/null; then
-  echo "Sign in to 1Password (required to fetch the Slack bot token):"
-  op signin
-  if ! op whoami &>/dev/null; then
-    echo "Error: 1Password sign-in failed." >&2
-    exit 1
-  fi
+  echo "Error: Not signed in to 1Password." >&2
+  echo "" >&2
+  echo "1Password sign-in requires an interactive terminal. Please:" >&2
+  echo "  1. Exit Claude" >&2
+  echo "  2. Run: eval \$(op signin)" >&2
+  echo "  3. Start Claude again" >&2
+  echo "  4. Run: /slack-notify:configure" >&2
+  exit 1
 fi
 
 # ── Fetch Slack bot token ──────────────────────────────────────────────────────
