@@ -5,7 +5,7 @@
   "plugins": [
     {
       "name": "slack-notify",
-      "source": ".",
+      "source": "./plugins/slack-notify",
       "description": "Sends Slack DMs when Claude finishes a task or needs approval",
       "version": "1.0.0"
     }
