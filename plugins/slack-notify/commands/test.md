@@ -14,12 +14,15 @@ Send a test Slack DM to verify the plugin is working.
    curl -s -H "Authorization: Bearer $SLACK_TOKEN" https://slack.com/api/auth.test
    ```
    Report whether the token is valid or expired/invalid.
-4. If the token is valid, send a test DM:
+4. If the token is valid, send a test DM using Python (do NOT use curl for this step — it causes invalid_json errors):
    ```bash
-   curl -s -X POST https://slack.com/api/chat.postMessage \
-     -H "Authorization: Bearer $SLACK_TOKEN" \
-     -H "Content-Type: application/json; charset=utf-8" \
-     -d '{"channel":"'$SLACK_USER_ID'","text":"🧪 Test message from slack-notify — everything is working!"}'
+   python3 -c "
+   import urllib.request, json
+   data = json.dumps({'channel': '$SLACK_USER_ID', 'text': '🧪 Test message from slack-notify — everything is working!'}).encode()
+   req = urllib.request.Request('https://slack.com/api/chat.postMessage', data=data, headers={'Authorization': 'Bearer $SLACK_TOKEN', 'Content-Type': 'application/json; charset=utf-8'})
+   resp = json.loads(urllib.request.urlopen(req).read())
+   print(json.dumps(resp, indent=2))
+   "
    ```
 5. Report success. If any step fails, show the error and suggest:
    - Token invalid → re-run `/slack-notify:configure`
