@@ -1,0 +1,13 @@
+{
+  "name": "slack-notify-marketplace",
+  "description": "Marketplace for the slack-notify plugin",
+  "owner": { "name": "Spencer Poon Woo" },
+  "plugins": [
+    {
+      "name": "slack-notify",
+      "source": ".",
+      "description": "Sends Slack DMs when Claude finishes a task or needs approval",
+      "version": "1.0.0"
+    }
+  ]
+}

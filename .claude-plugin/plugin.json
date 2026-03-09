@@ -1,0 +1,9 @@
+{
+  "name": "slack-notify",
+  "description": "Sends Slack DMs when Claude finishes a task or needs approval",
+  "author": {
+    "name": "Spencer Poon Woo",
+    "email": "spencerpoonwoo@gmail.com"
+  },
+  "hooks": "./hooks/hooks.json"
+}
