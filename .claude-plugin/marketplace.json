@@ -7,7 +7,7 @@
       "name": "slack-notify",
       "source": "./plugins/slack-notify",
       "description": "Sends Slack DMs when Claude finishes a task or needs approval",
-      "version": "1.1.0"
+      "version": "1.2.0"
     }
   ]
 }
