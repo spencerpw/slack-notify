@@ -4,6 +4,5 @@
   "author": {
     "name": "Spencer Poon Woo",
     "email": "spencerpoonwoo@gmail.com"
-  },
-  "hooks": "./hooks/hooks.json"
+  }
 }
